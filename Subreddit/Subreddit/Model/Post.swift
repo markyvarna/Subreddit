@@ -28,7 +28,9 @@ struct Post: Decodable {
 struct JSONDictionary: Decodable {
     
     let dataDict: DataDictionary
-    
+    private enum CodingKeys: String, CodingKey {
+        case dataDict = "data"
+    }
     //DataDictionary
     struct DataDictionary: Decodable {
         
@@ -38,7 +40,9 @@ struct JSONDictionary: Decodable {
         struct PostDictionary: Decodable {
             
             let post: Post
-            
+            private enum CodingKeys: String, CodingKey {
+                case post = "data"
+            }
         }
     }
     
