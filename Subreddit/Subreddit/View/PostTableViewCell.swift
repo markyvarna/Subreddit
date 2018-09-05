@@ -15,7 +15,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var upVotesLabel: UILabel!
     @IBOutlet var numOfCommentsLabel: UILabel!
-    @IBOutlet var postImageView: UIImageView!
+    @IBOutlet var roundImageView: Round!
     
     //MARK: - Properties
     var post: Post? {
@@ -33,7 +33,7 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+       self.roundImageView.setUpView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,7 +47,19 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.text = post?.title
         upVotesLabel.text = String(describing: post?.numberOfUpvotes)
         numOfCommentsLabel.text = String(describing: post?.numberOfComments)
+        roundImageView.setUpView()
+    }
+    
+    func setUpUi() {
         
+        roundImageView.layer.borderColor = UIColor.red.cgColor
+        roundImageView.layer.borderWidth = 3.5
+        roundImageView.layer.cornerRadius = 5
+        roundImageView.layer.shadowOffset = CGSize(width: 10, height: 20)
+        roundImageView.layer.shadowColor = UIColor.lightGray.cgColor
+        roundImageView.layer.shadowRadius = 2
+        roundImageView.layer.shadowOpacity = 0.8
+        roundImageView.clipsToBounds = true
     }
 
 }

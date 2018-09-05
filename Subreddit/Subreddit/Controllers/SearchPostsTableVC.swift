@@ -22,6 +22,9 @@ class SearchPostsTableVC: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
         
     }
+    
+    //MARK: - UI
+    
 
     // MARK: - Table view data source
 
@@ -37,7 +40,8 @@ class SearchPostsTableVC: UITableViewController, UISearchBarDelegate {
         PostController.shared.fetchImages(at: post.thumbnailEndpoint) { (image) in
             cell?.post = post
             DispatchQueue.main.async {
-                cell?.imageView?.image = image
+                cell?.roundImageView.image = image
+                
                 cell?.titleLabel.text = post.title
                 cell?.upVotesLabel.text = "⬆️ \(post.numberOfUpvotes)"
                 cell?.numOfCommentsLabel.text = "💬 \(post.numberOfComments)"

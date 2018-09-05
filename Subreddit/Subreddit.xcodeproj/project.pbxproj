@@ -15,6 +15,7 @@
 		455A8C6C213F571B000B4496 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8C6B213F571B000B4496 /* PostController.swift */; };
 		455A8C70213F8A7A000B4496 /* SearchPostsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8C6F213F8A7A000B4496 /* SearchPostsTableVC.swift */; };
 		455A8C72213F96E9000B4496 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8C71213F96E9000B4496 /* PostTableViewCell.swift */; };
+		455A8C75213FBB51000B4496 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455A8C74213FBB51000B4496 /* Round.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		455A8C6B213F571B000B4496 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		455A8C6F213F8A7A000B4496 /* SearchPostsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostsTableVC.swift; sourceTree = "<group>"; };
 		455A8C71213F96E9000B4496 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		455A8C74213FBB51000B4496 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				455A8C71213F96E9000B4496 /* PostTableViewCell.swift */,
+				455A8C74213FBB51000B4496 /* Round.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				455A8C6C213F571B000B4496 /* PostController.swift in Sources */,
 				455A8C72213F96E9000B4496 /* PostTableViewCell.swift in Sources */,
 				455A8C57213F5297000B4496 /* AppDelegate.swift in Sources */,
+				455A8C75213FBB51000B4496 /* Round.swift in Sources */,
 				455A8C70213F8A7A000B4496 /* SearchPostsTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
