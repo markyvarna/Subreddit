@@ -34,11 +34,22 @@ class SearchPostsTableVC: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell
         let post = PostController.shared.posts[indexPath.row]
-        cell?.titleLabel.text = post.title
-        cell?.upVotesLabel.text = "⬆️ \(post.numberOfUpvotes)"
-        cell?.numOfCommentsLabel.text = "💬 \(post.numberOfComments)"
+        PostController.shared.fetchImages(at: post.thumbnailEndpoint) { (image) in
+            cell?.post = post
+            DispatchQueue.main.async {
+                cell?.imageView?.image = image
+                cell?.titleLabel.text = post.title
+                cell?.upVotesLabel.text = "⬆️ \(post.numberOfUpvotes)"
+                cell?.numOfCommentsLabel.text = "💬 \(post.numberOfComments)"
+            }
+            
+        }
         
         
+        /*
+         In the completion handler you'll either have an image or nil passed in as an argument. Set the cell's post property to the post we want to display. This will update the cell to show the post's properties (except for the thumbnail).
+         Next, we'll set the cell's image property to the returned image optional. Remember that fetchThumbnail() performed an asyncronous network call on a background thread. Make sure to update the UI on the Main thread.
+         Run your project and see how it looks. Scroll quickly and see if the cell's load smoothly.*/
         return cell ?? UITableViewCell()
     }
     

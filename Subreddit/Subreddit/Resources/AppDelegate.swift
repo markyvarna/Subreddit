@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        PostController.shared.fetchPosts(by: "bananas") { (posts) in
-            print(posts)
-        }
+//        PostController.shared.fetchPosts(by: "bananas") { (posts) in
+//            print(posts)
+//        }
         
         return true
     }

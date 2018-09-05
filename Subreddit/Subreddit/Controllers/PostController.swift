@@ -6,18 +6,11 @@
 //  Copyright © 2018 Markus Varner. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PostController {
     
-    /*
-   
-     Create a constant called postsWithoutImages that will be set equal to the posts that are inside of our jsonDictionary. Pull them out using flatmap.
-     Solution:
-     let postsWithoutImages = jsonDictionary.data.children.flatMap( {$0.post} )
-     Assign this array of posts to self.posts and call completion().
-
-     */
+  
     //URL: https://www.reddit.com/r/funny/.json
     
     
@@ -69,9 +62,39 @@ class PostController {
         
     }
     
+    
+    //MARK: - Fetch Images
+    
+    func fetchImages(at urlString: String, completion: @escaping (UIImage?) -> Void) {
+        
+        guard let url = URL(string: urlString) else {completion(nil); return}
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            
+            do {
+                
+                //handle error
+                if let error = error {throw error}
+                guard let newData = data else {throw NSError()}
+                guard let image = UIImage(data: newData) else {completion(nil); return}
+                print("🧐 are you on the main thread \(Thread.isMainThread)")
+                completion(image)
+                
+            } catch let error {
+                
+                print("🤬 Error dataTask Completion \(error), \(error.localizedDescription)🤬")
+                completion(nil)
+                
+            }
+            
+        }.resume()
+    }
+    
+    
 }
 
-//B1.)Know what you want to display (complete) to the user
-//B2.) Call URLSession - so you can work backwards
-//B3.) We need base url
-//B4.) Build your url - Components ("/"), Querys [:], and extentsions (".")
+/*
+ Check for and unwrap the data. Create a constant image by passing in the unwrapped data to the initializer on UIImage that takes data as an argument. (This initializer is also failable).
+ 
+ Call completion whether or not you get an image. Choose whether you'll need to call completion(image) or completion(nil) in each part of your code where you will return out of this function.
+ */
