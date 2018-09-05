@@ -16,7 +16,7 @@ class Round: UIImageView {
         func setUpView(){
             self.layer.cornerRadius = self.frame.width / 2
             self.clipsToBounds = true
-            self.layer.borderWidth = 2.5
+            self.layer.borderWidth = 3.0
             self.layer.borderColor = UIColor.purple.cgColor
         }
     
